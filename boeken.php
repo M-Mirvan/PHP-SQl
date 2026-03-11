@@ -16,6 +16,8 @@ $title = isset($_GET['title']) ? trim($_GET['title']) : '';
 $author = isset($_GET['author']) ? trim($_GET['author']) : '';
 $genre = isset($_GET['genre']) ? trim($_GET['genre']) : '';
 $published_year = isset($_GET['published_year']) ? trim($_GET['published_year']) : '';
+$rating = isset($_GET['rating']) ? trim($_GET['rating']) : '';
+$availability = isset($_GET['availability']) ? trim($_GET['availability']) : '';
 
 // Build query dynamically
 $sql = "SELECT * FROM books WHERE 1=1";
@@ -36,6 +38,14 @@ if ($genre !== '') {
 if ($published_year !== '') {
     $sql .= " AND published_year = :published_year";
     $params[':published_year'] = $published_year;
+}
+if ($rating !== '') {
+    $sql .= " AND rating = :rating";
+    $params[':rating'] = $rating;
+}
+if ($availability !== '') {
+    $sql .= " AND availability = :availability";
+    $params[':availability'] = $availability;
 }
 
 // Prepare and execute
@@ -59,12 +69,19 @@ $years = $dbh->query("SELECT DISTINCT published_year FROM books ORDER BY publish
     Title: <input type="text" name="title" value="<?= htmlspecialchars($title) ?>"><br><br>
     Author: <input type="text" name="author" value="<?= htmlspecialchars($author) ?>"><br><br>
     
-    Genre:
-    <select name="genre">
-        <option value="">-- All Genres --</option>
-        <?php foreach ($genres as $g): ?>
-            <option value="<?= htmlspecialchars($g) ?>" <?= $g == $genre ? 'selected' : '' ?>><?= htmlspecialchars($g) ?></option>
-        <?php endforeach; ?>
+    <?php
+
+    $ratingOptions = ['Good', 'mid', 'Bad', 'Excellent'];
+
+    $rating = isset($_GET['rating']) ? trim($_GET['rating']) : '';
+    ?>
+
+    Rating:
+    <select name="rating">
+    <option value="">-- All Ratings --</option>
+    <?php foreach ($ratingOptions as $r): ?>
+    <option value="<?= htmlspecialchars($r) ?>" <?= $r == $rating ? 'selected' : '' ?>><?= htmlspecialchars($r) ?></option>
+    <?php endforeach; ?>
     </select><br><br>
     
     Published Year:
@@ -81,18 +98,22 @@ $years = $dbh->query("SELECT DISTINCT published_year FROM books ORDER BY publish
 <h3>Results:</h3>
 <table border="1" cellpadding="5">
     <tr>
-        <th>title</th>
-        <th>author</th>
-        <th>genre</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Rating</th>
         <th>Published Year</th>
+        <th>rating</th>
+        <th>availability</th>
     </tr>
     <?php if (!empty($results)): ?>
         <?php foreach ($results as $row): ?>
         <tr>
             <td><?= htmlspecialchars($row['title']) ?></td>
             <td><?= htmlspecialchars($row['author']) ?></td>
-            <td><?= htmlspecialchars($row['genre']) ?></td>
+            <td><?= htmlspecialchars($row['rating']) ?></td>
             <td><?= htmlspecialchars($row['published_year']) ?></td>
+            <td><?= htmlspecialchars($row['rating']) ?></td>
+            <td><?= htmlspecialchars($row['availability']) ?></td>
         </tr>
         <?php endforeach; ?>
     <?php else: ?>
