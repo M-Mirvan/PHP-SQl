@@ -1,0 +1,92 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: black; 
+    color: #ffffff; 
+    margin: 20px;
+}
+
+
+.nav-links {
+    margin-bottom: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #444444; 
+    color: #ffffff;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background 0.3s;
+
+    font-size:15px ;
+}
+
+.nav-links a:hover {
+    background-color: #b1b3b6; 
+}
+
+
+.add-book {
+    background-color: #121212; 
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    max-width: 500px;
+    margin: auto;
+   
+}
+
+@keyframes bgColorFade {
+
+}
+
+
+#boekForm input[type="text"],
+#boekForm input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #1a1a1a;
+    border-radius: 5px;
+    background-color: rgb(59, 56, 56); 
+    color: #ffffff; 
+}
+
+#boekForm input[type="radio"] {
+    margin-right: 5px;
+}
+
+#submit-btn {
+    background-color: #414040;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#submit-btn:hover {
+    background-color: #89919b;
+}
+
+
+.success-msg {
+    color: #63d363;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.error-msg {
+    color: #ff4d4d;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+
+label{
+    color: #cffcfcfd; 
+}
