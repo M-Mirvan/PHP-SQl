@@ -38,10 +38,33 @@ body {
    
 }
 
+
+
 @keyframes bgColorFade {
 
 }
+.add-ov{
+ 
+    background-color: #121212;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+}
 
+#ovForm input[type="text"],
+#ovForm select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #1a1a1a;
+    border-radius: 5px;
+    background-color: rgb(59, 56, 56);
+    color: #ffffff;
+}
 
 #boekForm input[type="text"],
 #boekForm input[type="number"] {
@@ -90,3 +113,13 @@ body {
 label{
     color: #cffcfcfd; 
 }
+
+    footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 0.9em;
+        position: fixed  ;
+        bottom: 0 !important;
+    }

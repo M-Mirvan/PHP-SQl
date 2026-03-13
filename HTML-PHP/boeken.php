@@ -70,13 +70,18 @@ $years = $dbh->query("SELECT DISTINCT published_year FROM books ORDER BY publish
 
 <body>
 <link rel="stylesheet" href="../css/style.css">
+<div class="nav-links">
 <a href="boeken.php">overzicht</a>
 <a href="boekentoe.php">boeken toevoegen</a>
-
+</div>
 </body>
 </html>
 <h2>Filter Books</h2>
-<form method="GET">
+<div class="add-ov">
+    <h2>Boek Toevoegen</h2>
+
+    <form method="GET" id="ovForm">
+
     Title: <input type="text" name="title" value="<?= htmlspecialchars($title) ?>"><br><br>
     Author: <input type="text" name="author" value="<?= htmlspecialchars($author) ?>"><br><br>
     
@@ -104,7 +109,7 @@ $years = $dbh->query("SELECT DISTINCT published_year FROM books ORDER BY publish
         <?php endforeach; ?>
     </select><br><br>
     
-    <button type="submit">Filter</button>
+  <input type="submit" value="Filter" id="submit-btn">
 </form>
 
 <h3>Results:</h3>
@@ -131,6 +136,15 @@ $years = $dbh->query("SELECT DISTINCT published_year FROM books ORDER BY publish
     <?php else: ?>
         <tr><td colspan="4">No results found.</td></tr>
     <?php endif; ?>
+
+
+
 </table>
+        
+        <?php require_once ("footer.php") ?>
+
 </body>
+    
 </html>
+
+    

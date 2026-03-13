@@ -70,7 +70,7 @@ $conn->close();
         <input type="radio" name="rating" value="Bad" required> Bad<br>
         <input type="radio" name="rating" value="Mid"> Mid<br>
         <input type="radio" name="rating" value="Good"> Good<br>
-        <input type="radio" name="rating" value="excellence"> Excellence<br><br>
+        <input type="radio" name="rating" value="excellence"> Excellent<br><br>
 
         <label>Genre:</label><br>
         <input type="radio" name="genre" value="Fantasy" required> Fantasy<br>
@@ -87,5 +87,8 @@ $conn->close();
     </form>
 </div>
 
+<?php require_once ("footer.php") ?>
+
 </body>
+
 </html>
