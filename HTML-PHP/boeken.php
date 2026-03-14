@@ -71,14 +71,13 @@ $years = $dbh->query("SELECT DISTINCT published_year FROM books ORDER BY publish
 <body>
 <link rel="stylesheet" href="../css/style.css">
 <div class="nav-links">
-<a href="boeken.php">overzicht</a>
-<a href="boekentoe.php">boeken toevoegen</a>
+<?php require_once ("header.php") ?>
 </div>
 </body>
 </html>
 <h2>Filter Books</h2>
 <div class="add-ov">
-    <h2>Boek Toevoegen</h2>
+    <h2>Boek Overzicht</h2>
 
     <form method="GET" id="ovForm">
 
@@ -117,9 +116,9 @@ $years = $dbh->query("SELECT DISTINCT published_year FROM books ORDER BY publish
     <tr>
         <th>Title</th>
         <th>Author</th>
-        <th>Rating</th>
+        <th>Genre</th>
         <th>Published Year</th>
-        <th>rating</th>
+        <th>Rating</th>
         <th>availability</th>
     </tr>
     <?php if (!empty($results)): ?>
@@ -127,7 +126,7 @@ $years = $dbh->query("SELECT DISTINCT published_year FROM books ORDER BY publish
         <tr>
             <td><?= htmlspecialchars($row['title']) ?></td>
             <td><?= htmlspecialchars($row['author']) ?></td>
-            <td><?= htmlspecialchars($row['rating']) ?></td>
+            <td><?= htmlspecialchars($row['genre']) ?></td>
             <td><?= htmlspecialchars($row['published_year']) ?></td>
             <td><?= htmlspecialchars($row['rating']) ?></td>
             <td><?= htmlspecialchars($row['availability']) ?></td>
@@ -140,7 +139,7 @@ $years = $dbh->query("SELECT DISTINCT published_year FROM books ORDER BY publish
 
 
 </table>
-        
+
         <?php require_once ("footer.php") ?>
 
 </body>

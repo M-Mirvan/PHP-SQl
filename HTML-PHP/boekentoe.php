@@ -45,8 +45,7 @@ $conn->close();
 <body>
 
 <div class="nav-links">
-    <a href="boeken.php" >Overzicht</a>
-    <a href="boekentoe.php" >Boeken toevoegen</a>
+    <?php require_once ("header.php") ?>
 </div>
 
 <div class="add-book">
@@ -79,7 +78,7 @@ $conn->close();
         <input type="radio" name="genre" value="Programming"> Programming<br><br>
 
         <label>availability:</label><br>
-        <input type="number"  name="availability" min="0" max="99" >
+        <input type="number"  name="availability" required min="0" max="99" >
         <br><br>
 
         <input type="submit" value="Opslaan" id="submit-btn">
